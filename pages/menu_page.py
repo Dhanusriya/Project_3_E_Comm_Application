@@ -9,13 +9,16 @@ class MenuPage(BasePage):
 
     def open_menu(self):
         self.click(self.menu_button)
-        # Wait until Reset App State is visible
-        self.wait.wait_for_visibility(self.reset_app_state)
+        print("Menu button clicked")
+        self.wait.wait_for_visibility(self.logout_button)
+        print("Logout button visible")
 
     def logout(self):
         self.wait.wait_for_visibility(self.logout_button)
         self.click(self.logout_button)
 
     def reset_app(self):
+        print("Waiting for Reset App State...")
         reset = self.wait.wait_for_clickable(self.reset_app_state)
+        print("Reset App State clickable")
         self.driver.execute_script("arguments[0].click();", reset)

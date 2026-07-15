@@ -5,6 +5,7 @@ from pages.login_page import LoginPage
 from pages.menu_page import MenuPage
 from test_data.users import STANDARD_USERNAME, STANDARD_PASSWORD
 from utilities.logger import Logger
+from utilities.screenshot import Screenshot
 
 logger = Logger.get_logger()
 
@@ -27,10 +28,11 @@ class TestResetAppState:
         inventory.get_random_products()
 
         assert inventory.get_cart_count() == "4"
-
+        Screenshot.capture(driver, "Before_Menu")
         logger.info("4 products added successfully")
 
         menu.open_menu()
+        Screenshot.capture(driver, "After_Menu")
         menu.reset_app()
 
         logger.info("Reset App State clicked")

@@ -11,13 +11,13 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                bat 'python -m pytest'
+                bat '"C:\\Users\\ASUS\\AppData\\Local\\Python\\bin\\python.exe" -m pytest'
             }
         }
 
         stage('Generate HTML Report') {
             steps {
-                bat 'python -m pytest --html=reports/report.html --self-contained-html'
+                bat '"C:\\Users\\ASUS\\AppData\\Local\\Python\\bin\\python.exe" -m pytest --html=reports/report.html --self-contained-html'
             }
         }
     }
